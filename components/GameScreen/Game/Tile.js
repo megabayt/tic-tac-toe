@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { CIRCLE, CROSS } from './constants';
-import Circle from './Circle';
-import Cross from './Cross';
+import { PawnImage } from './PawnImage';
 
 export default class Tile extends Component {
   _renderContent() {
     switch (this.props.value) {
       case CIRCLE:
-        return <Circle color="white" />;
+        return <PawnImage color="white" />;
       case CROSS:
-        return <Cross color="white" />;
+        return <PawnImage color="black" />;
       default:
         return <Text style={styles.text} onPress={this._handlePress} />;
     }
