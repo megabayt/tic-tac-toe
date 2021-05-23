@@ -8,14 +8,19 @@ import {
   EMPTY,
   DRAW,
   VICTORY_CONDITIONS,
+  ROW_SIZE,
 } from './constants';
+
+const initalState = {
+  board: [...new Array(ROW_SIZE * ROW_SIZE)].map(_ => EMPTY),
+};
 
 export default class Game extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      board: [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+      ...initalState,
     };
   }
 
@@ -77,7 +82,7 @@ export default class Game extends Component {
 
   _clearField() {
     this.setState({
-      board: [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+      ...initalState,
     });
   }
 

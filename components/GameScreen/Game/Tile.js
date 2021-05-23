@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { CIRCLE, CROSS } from './constants';
+import { CIRCLE, CROSS, FIGURE_SIZE } from './constants';
 import { PawnImage } from './PawnImage';
 
 export default class Tile extends Component {
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#fff',
     borderWidth: 1,
-    width: 100,
-    height: 100,
+    width: FIGURE_SIZE,
+    height: FIGURE_SIZE,
   },
   text: {
-    width: 100,
-    height: 100,
+    width: FIGURE_SIZE,
+    height: FIGURE_SIZE,
   },
 });
