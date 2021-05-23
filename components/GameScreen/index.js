@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
 import Game from './Game';
+import { GameProvider } from './GameContext';
 import Result from './Result';
 
 export default class GameScreen extends Component {
@@ -33,17 +34,19 @@ export default class GameScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View pointerEvents={this.state.result ? 'none' : 'auto'}>
-          <Game onFinish={this.handleGameFinish} />
+      <GameProvider>
+        <View style={styles.container}>
+          <View pointerEvents={this.state.result ? 'none' : 'auto'}>
+            <Game onFinish={this.handleGameFinish} />
+          </View>
+          {this.state.result && (
+            <Result
+              result={this.state.result}
+              onRestartGameBtnClick={this.handleGameRestart}
+            />
+          )}
         </View>
-        {this.state.result && (
-          <Result
-            result={this.state.result}
-            onRestartGameBtnClick={this.handleGameRestart}
-          />
-        )}
-      </View>
+      </GameProvider>
     );
   }
 }

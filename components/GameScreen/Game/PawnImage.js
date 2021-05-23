@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { FIGURE_SIZE } from './constants';
+import { GameContext } from '../GameContext';
 
 export const PawnImage = ({ color }) => {
+  const { FIGURE_SIZE } = useContext(GameContext);
   const stroke = color === 'white' ? 'black' : 'white';
 
   return (
